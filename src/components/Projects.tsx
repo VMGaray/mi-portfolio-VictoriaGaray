@@ -1,9 +1,11 @@
+'use client';
+
 import { projectsData } from "../data/projectsData";
 import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
   return (
-    <section id="proyectos" className="bg-white py-16 md:py-24">
+    <section id="proyectos" className="py-16 md:py-24" style={{backgroundColor: '#E0D7F0'}}>
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-blue-950 mb-12 md:mb-16">
           Mis Proyectos
