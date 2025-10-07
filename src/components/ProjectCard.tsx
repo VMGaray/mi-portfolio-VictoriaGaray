@@ -69,18 +69,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <FaGithub size={18} />
             Ver Código
           </Link>
-          <Link
-            href={project.deployUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 text-center"
-            style={{backgroundColor: '#81B04F'}}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6d9542'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#81B04F'}
-          >
-            <FaExternalLinkAlt size={16} />
-            Ver Demo
-          </Link>
+          {project.deployUrl && (
+            <Link
+              href={project.deployUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 text-center"
+              style={{backgroundColor: '#81B04F'}}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6d9542'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#81B04F'}
+            >
+              <FaExternalLinkAlt size={16} />
+              Deploy
+            </Link>
+          )}
         </div>
       </div>
     </div>
