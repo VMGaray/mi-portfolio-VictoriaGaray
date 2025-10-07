@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Lado de la imagen */}
         <div className="flex justify-center md:justify-end animate-fade-in">
-          <div className="rounded-full overflow-hidden w-64 h-64 md:w-80 md:h-80 shadow-2xl ring-4 hover:ring-[#7E4FB0]/40 transition-all duration-300 hover:scale-105" style={{ringColor: 'rgba(126, 79, 176, 0.2)'}}>
+          <div className="rounded-full overflow-hidden w-64 h-64 md:w-80 md:h-80 shadow-2xl ring-4 ring-[#7E4FB0]/20 hover:ring-[#7E4FB0]/40 transition-all duration-300 hover:scale-105">
             <Image
               src="/images/foto perfil.jpg"
               alt="Foto de Victoria Garay"

@@ -139,12 +139,9 @@ export default function ImageCarousel({ images, title, autoplay = true, interval
               onClick={() => goToImage(index)}
               className={`relative flex-shrink-0 w-20 h-14 md:w-24 md:h-16 rounded-lg overflow-hidden transition-all duration-300 ${
                 currentImageIndex === index
-                  ? 'ring-3 ring-offset-2 scale-105 shadow-lg'
+                  ? 'ring-3 ring-[#7E4FB0] ring-offset-2 scale-105 shadow-lg'
                   : 'opacity-50 hover:opacity-100 hover:scale-105'
               }`}
-              style={{
-                ringColor: currentImageIndex === index ? '#7E4FB0' : 'transparent',
-              }}
             >
               <Image
                 src={image}
