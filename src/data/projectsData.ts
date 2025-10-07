@@ -68,4 +68,27 @@ export const projectsData = [
       "/images/vgb-store-6.jpg",
     ],
   },
+  {
+    id: 3,
+    title: "Lumière Beauty - Sistema de Turnos",
+    description:
+      "Aplicación web moderna y elegante para la gestión de turnos de un salón de belleza. Ofrece autenticación de usuarios, gestión completa de citas, diseño responsive y validación en tiempo real.",
+    technologies: [
+      { name: "React", icon: FaReact },
+      { name: "Redux Toolkit", icon: SiRedux },
+      { name: "Vite" },
+      { name: "React Router" },
+      { name: "Axios" },
+      { name: "CSS Modules" },
+    ],
+    githubUrl: "https://github.com/VMGaray/sistema-de-turnos.git",
+    deployUrl: "",
+    images: [
+      "/images/sistema de turnos.jpg",
+      "/images/sistema de turnos1.jpg",
+      "/images/sistema de turnos2.jpg",
+      "/images/sistema de turnos3.jpg",
+      "/images/sistema de turnos4.jpg",
+    ],
+  },
 ];
