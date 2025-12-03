@@ -1,0 +1,8 @@
+Grupo ICC Soluciones Profesionales y Tecnológicas SL Palmas, Canarias, España · 2025
+•	Desarrollo e implementación de un sistema automatizado para evaluar el impacto real de notas de prensa en radio y televisión.
+•	Diseño de flujo backend que consulta una API de medios, filtra contenido relevante y calcula métricas objetivas como cobertura, duración, alcance y engagement.
+•	Integración de IA (LLM) para análisis emocional y generación de resúmenes ejecutivos basados en datos reales.
+•	Refactorización de nodos y validación de estructura JSON para asegurar respuestas completas y confiables.
+•	Desarrollo de frontend funcional que muestra resultados en tiempo real, con visualización clara de métricas, sentimiento global y resultado final.
+•	Ejecución de pruebas E2E con contenido real para validar comportamiento ante distintos escenarios.
+•	Ajustes finos en diseño de interacción, visualización de fallback y clasificación emocional.

@@ -14,6 +14,7 @@ import {
   SiPostgresql,
   SiExpress,
   SiTypescript,
+  SiN8N,
 } from "react-icons/si";
 
 const skillsData = [
@@ -24,6 +25,7 @@ const skillsData = [
   { name: "Redux", icon: SiRedux, color: "text-purple-600" },
   { name: "Node.js", icon: FaNodeJs, color: "text-green-600" },
   { name: "Express", icon: SiExpress, color: "text-gray-700" },
+  { name: "n8n", icon: SiN8N, color: "text-pink-600" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-700" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-400" },
   { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-700" },

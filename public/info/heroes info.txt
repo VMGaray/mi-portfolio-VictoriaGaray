@@ -1,0 +1,35 @@
+, y🧑‍🚒 Héroes Cercanos
+Héroes Cercanos es una plataforma solidaria desarrollada con Next.js que conecta a la comunidad con los bomberos voluntarios mediante campañas de donación, capacitaciones e información útil.
+
+🚀 Tecnologías
+Next.js 14
+TypeScript
+Tailwind CSS
+Lucide React
+OAuth 2.0 – Login con Google
+Context API – Manejo de sesión
+JWT – Autenticación segura
+PostgreSQL
+Render – Deploy
+📸 Funcionalidades principales
+🔐 Autenticación con email y Google
+🧑‍💼 Roles diferenciados: admin / usuario
+🧾 Listado de campañas públicas para compartir por Whatsapp
+📦 Gestión de donaciones
+🎓 Capacitaciones y contenido informativo (Cloudinary)
+🧭 Geolocalización con mapa (Leaflet)
+📱 Totalmente responsive
+💲 Pasarela de pagos / mercadoPago
+📧 Notificaciones por email
+👥 Gestor de usuarios (promover, degradar, desactivar)
+🔥 Reportar incidentes / incendios - Gestión de reportes
+📈 Métricas de admin
+
+
+Aportes al proyecto Héroes Cercanos
+
+En Héroes Cercanos participé activamente en el desarrollo de funcionalidades clave orientadas a mejorar la experiencia del usuario y potenciar el panel administrativo. Implementé un chatbot inteligente integrado mediante Voiceflow, personalizando su carga, estilo y comportamiento para asegurar coherencia visual con la plataforma y optimizar su rendimiento (carga única, apertura/cierre desde un botón flotante propio).
+
+Desarrollé también el módulo de geolocalización utilizando Leaflet.js, permitiendo a los usuarios reportar incidentes seleccionando el tipo y la ubicación directamente en un mapa interactivo, con formularios accesibles y validados.
+
+Finalmente, implementé el sistema completo de métricas para el panel de administración, consumiendo endpoints seguros del backend y visualizando datos mediante gráficos dinámicos. Estas métricas incluyen estadísticas de usuarios, donaciones e incidentes a nivel semanal, mensual y total, aportando herramientas reales para la toma de decisiones.
