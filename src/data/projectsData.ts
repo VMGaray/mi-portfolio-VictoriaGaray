@@ -141,7 +141,7 @@ export const projectsData = [
       "/images/n8n.jpeg",
     ],
     githubUrl: "#",
-    deployUrl: "https://impacto-notas-prensa.vercel.app/",
+    deployUrl: "",
     images: [
       "/images/nota-prensa.jpeg",
       "/images/nota-prensa1.jpeg",

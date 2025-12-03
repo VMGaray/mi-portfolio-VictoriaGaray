@@ -11,7 +11,7 @@ export default function Contact() {
           ¿Hablamos?
         </h2>
         <p className="text-lg text-blue-950 leading-relaxed mb-10">
-          Estoy buscando mi primera oportunidad laboral. Si mi perfil te interesa, no dudes en contactarme. ¡Me encantaría trabajar contigo!
+          Estoy buscando mi primera oportunidad laboral. Si mi perfil te interesa, no dudes en contactarme.
         </p>
         <div className="flex justify-center gap-6 md:gap-8 flex-wrap">
           {/* Enlace a LinkedIn */}
