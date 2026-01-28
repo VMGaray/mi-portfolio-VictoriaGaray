@@ -31,6 +31,12 @@ const images = [
   "/images/sistema de turnos2.jpg",
   "/images/sistema de turnos3.jpg",
   "/images/sistema de turnos4.jpg",
+  "/images/alerta menciones flujo.jpeg",
+  "/images/matching flujo.jpeg",
+  "/images/recolector flujo.jpeg",
+  "/images/app martins.jpeg",
+  "/images/app martins login.jpeg",
+  "/images/app martins admin.jpeg",
 ];
 
 export default function ImageGalleryCarousel() {

@@ -1,21 +1,9 @@
 // Primero, importa los iconos que usarás de `react-icons`
 import {
-  FaReact,
-  FaBootstrap,
-  FaJs,
-  FaHtml5,
-  FaCss3Alt,
-  FaNodeJs,
-} from "react-icons/fa";
-import {
-  SiNextdotjs,
-  SiTailwindcss,
-  SiRedux,
-  SiPostgresql,
-  SiExpress,
-  SiTypescript,
-  SiN8N,
-} from "react-icons/si";
+  FaReact, FaBootstrap, FaJs, FaHtml5, FaCss3Alt, FaNodeJs, FaRobot, FaDatabase, 
+  FaServer, FaWhatsapp, FaGlobeAmericas, FaCertificate } from "react-icons/fa";
+import { SiNextdotjs, SiTailwindcss, SiRedux, SiPostgresql, SiExpress, SiTypescript,
+  SiN8N, SiOpenai, SiSupabase, SiJavascript, SiPwa} from "react-icons/si";
 
 export const projectsData = [
   {
@@ -236,6 +224,98 @@ export const projectsData = [
       "/images/sistema de turnos2.jpg",
       "/images/sistema de turnos3.jpg",
       "/images/sistema de turnos4.jpg",
+    ],
+  },
+  {
+    id: 6,
+    title: "🤖 Alerta Menciones - IA Lead Gen",
+    description:
+      "Sistema de inteligencia de mercado que automatiza la ingesta, filtrado y calificación de leads desde TripAdvisor. Procesa miles de noticias mediante agentes de IA para identificar oportunidades de negocio reales, eliminando el ruido informativo y centralizando la gestión en una base de datos vectorial.",
+    technologies: [
+      { name: "n8n", icon: SiN8N },
+      { name: "OpenAI GPT-4", icon: SiOpenai },
+      { name: "Supabase (Vectors)", icon: SiSupabase },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "REST APIs" },
+    ],
+    features: [
+      { icon: "📡", text: "Extracción masiva de TripAdvisor" },
+      { icon: "🧠", text: "Calificación lógica con Agentes IA" },
+      { icon: "🔢", text: "Búsqueda semántica (Vector Embeddings)" },
+      { icon: "⚙️", text: "Procesamiento por lotes (Batch processing)" },
+      { icon: "🔗", text: "Arquitectura modular de micro-flujos" },
+      { icon: "🛡️", text: "Sistema de limpieza de duplicados" },
+    ],
+    myContribution: [
+      {
+        title: "⚙️ Arquitectura de Flujos Batch",
+        description: "Diseñé e implementé la lógica de procesamiento por lotes para gestionar más de 9,000 registros diarios, optimizando el uso de memoria en n8n y evitando bloqueos del servidor."
+      },
+      {
+        title: "🤖 Ingeniería de Prompts y Agentes",
+        description: "Configuré y calibré el Agente de IA (GPT-4) para analizar noticias complejas y extraer leads calificados, logrando una reducción del 60% en el tiempo de revisión manual del equipo comercial."
+      },
+      {
+        title: "🛰️ Integración Vectorial",
+        description: "Desarrollé la integración con Supabase y pgvector para el almacenamiento de embeddings, permitiendo que el sistema realice un 'matching' inteligente entre noticias y perfiles de clientes."
+      }
+    ],
+    cardImages: [
+      "/images/alerta menciones flujo.jpeg", // Recordá subir estas imágenes a tu carpeta public/images
+    ],
+    githubUrl: "#", // Al ser un proyecto privado/empresa, podés dejarlo así o linkear a un repo de demo
+    deployUrl: "", 
+    images: [
+      "/images/alerta menciones flujo.jpeg",
+      "/images/matching flujo.jpeg",
+      "/images/recolector flujo.jpeg",
+    ],
+  },
+  {
+    id: 7,
+    title: "🌊 Martins Perforaciones - Web & PWA",
+    description:
+      "Landing Page y Progressive Web App (PWA) de alta performance desarrollada para una empresa líder en perforaciones de agua en el Valle de Calamuchita, Córdoba. El proyecto se centra en transmitir solidez técnica y cumplimiento normativo (Habilitación DIPAS), optimizando la captación de clientes locales.",
+    technologies: [
+      { name: "Next.js (App Router)", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "PWA", icon: SiPwa },
+      { name: "React", icon: FaReact },
+    ],
+    features: [
+      { icon: "📱", text: "Instalable como App (PWA)" },
+      { icon: "💬", text: "Sistema de ruteo inteligente a WhatsApp" },
+      { icon: "📜", text: "Sección técnica de Habilitación DIPAS n°94" },
+      { icon: "🛠️", text: "Explicación visual del proceso de perforación" },
+      { icon: "📍", text: "Enfoque en SEO Local (Valle de Calamuchita)" },
+      { icon: "🔒", text: "Lógica de interfaz condicional para Admins" },
+    ],
+    myContribution: [
+      {
+        title: "🏗️ Desarrollo Full-Stack & PWA",
+        description: "Implementé la arquitectura completa bajo Next.js 14 y configuré las capacidades de Progressive Web App para asegurar acceso offline y una experiencia fluida desde dispositivos móviles en zonas rurales."
+      },
+      {
+        title: "📲 Lógica de Contacto Dinámica",
+        description: "Desarrollé un sistema de contacto que permite al usuario o administrador seleccionar dinámicamente el canal de comunicación, integrando APIs de mensajería directa."
+      },
+      {
+        title: "🎨 UI/UX con Enfoque de Marca",
+        description: "Diseñé una interfaz que balancea la robustez industrial con la confianza, utilizando una paleta de colores profesional y tipografías modernas para destacar la seriedad de la empresa frente a la competencia."
+      }
+    ],
+    cardImages: [
+      "/images/app martins.jpeg",
+    ],
+    githubUrl: "#", 
+    deployUrl: "https://martins-perforaciones-app.vercel.app/", // Reemplazar si tenés el dominio real
+    images: [
+      "/images/app martins.jpeg",
+      "/images/app martins login.jpeg",
+      "/images/app martins admin.jpeg",
+      
     ],
   },
 ];

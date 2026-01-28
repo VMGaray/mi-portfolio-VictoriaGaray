@@ -16,6 +16,13 @@ export default function ProjectVideos() {
       videoUrl: "/images/20251203-ecommers1.webm",
       projectLink: "https://github.com/VMGaray/magnolia_joyas.git",
     },
+    {
+      id: 3, // O el número que corresponda en tu orden
+      title: "🏗️ Martins Perforaciones - Web & PWA",
+      description: "Landing Page y PWA para empresa de perforaciones de agua en Calamuchita",
+      videoUrl: "/images/martins perforaciones.webm", // Recordá que el nombre debe coincidir con tu archivo .webm
+      projectLink: "https://martins-perforaciones-app.vercel.app/",
+    },
   ];
 
   return (

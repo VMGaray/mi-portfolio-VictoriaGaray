@@ -6,6 +6,7 @@ import Link from "next/link";
 import { projectsData } from "../data/projectsData";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
+
 interface ProjectCardProps {
   project: typeof projectsData[0];
 }
