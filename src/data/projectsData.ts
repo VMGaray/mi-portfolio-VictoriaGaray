@@ -4,10 +4,125 @@ import {
   FaServer, FaWhatsapp, FaGlobeAmericas, FaCertificate } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiRedux, SiPostgresql, SiExpress, SiTypescript,
   SiN8N, SiOpenai, SiSupabase, SiJavascript, SiPwa} from "react-icons/si";
+import { SiShopify } from 'react-icons/si'
 
-export const projectsData = [
-  {
+  export const projectsData = [
+
+
+{
     id: 1,
+    title: "💎 Magnolia Joyas - E-commerce",
+    description:
+      "E-commerce completo full-stack para joyería especializada en plata 925, oro 18k y productos personalizados. Incluye catálogo con sistema de categorización jerárquica, carrito de compras, lista de deseos, API RESTful con NestJS y base de datos PostgreSQL con TypeORM.",
+    technologies: [
+      { name: "Next.js 16", icon: SiNextdotjs },
+      { name: "React 19", icon: FaReact },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "NestJS", icon: SiExpress },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "TypeORM" },
+      { name: "Swagger" },
+      { name: "Docker" },
+      { name: "Context API" },
+    ],
+    features: [
+      { icon: "🏠", text: "Página inicio con productos destacados" },
+      { icon: "🔍", text: "Sistema categorías jerárquico" },
+      { icon: "🛒", text: "Carrito con persistencia LocalStorage" },
+      { icon: "❤️", text: "Lista de favoritos/wishlist" },
+      { icon: "👤", text: "Login y registro validados" },
+      { icon: "📱", text: "Diseño responsive premium" },
+      { icon: "🎨", text: "Paleta colores personalizada" },
+      { icon: "⚡", text: "Animaciones fluidas y 3D" },
+      { icon: "🔌", text: "API RESTful con NestJS" },
+      { icon: "📚", text: "Documentación Swagger" },
+      { icon: "🌱", text: "Sistema seeds datos iniciales" },
+      { icon: "🐳", text: "Dockerizado para deploy" },
+    ],
+    myContribution: [
+      {
+        title: "🎨 Diseño y Arquitectura Frontend",
+        description: "Desarrollé el frontend completo con Next.js App Router, implementando diseño elegante con paleta de colores custom (magnolia-dark, magnolia-lilac), tipografías premium (Playfair Display + Lato) y animaciones 3D en tarjetas de productos con efectos hover fluidos."
+      },
+      {
+        title: "🛒 Sistema de Carrito y Favoritos",
+        description: "Implementé carrito de compras completo con Context API y persistencia en LocalStorage, sistema de wishlist/favoritos, y panel lateral deslizable con resumen de compra. Incluye gestión de cantidades, eliminación de items y cálculo de totales en tiempo real."
+      },
+      {
+        title: "🔧 Backend y Base de Datos",
+        description: "Desarrollé API RESTful completa con NestJS, implementando CRUD de productos, sistema de categorización jerárquica (Categorías → Tipos → Subtipos) con TypeORM, validación de datos con class-validator, y documentación automática con Swagger."
+      },
+      {
+        title: "🚀 Integración Full-Stack",
+        description: "Establecí la integración completa frontend-backend, configuré PostgreSQL con Docker, creé sistema de seeds para datos iniciales (5 categorías + 10 productos), y configuré filtrado avanzado por categoría, tipo y subtipo con endpoints optimizados."
+      }
+    ],
+    cardImages: [
+      "/images/ecommers.jpeg",
+      "/images/ecommers2.jpeg",
+      "/images/ecommers4.jpeg",
+    ],
+    githubUrl: "https://github.com/VMGaray/magnolia_joyas.git",
+    deployUrl: "https://www.magnoliajoyas.com.ar",
+    images: [
+      "/images/ecommers.jpeg",
+      "/images/ecommers1.jpeg",
+      "/images/ecommers2.jpeg",
+      "/images/ecommers3.jpeg",
+      "/images/ecommers4.jpeg",
+      "/images/ecommers5.jpeg",
+    ],
+  },
+{
+  id: 2,
+  title: "👜 Fernanda Saladino — E-commerce de Cuero",
+  description:
+    "Tienda online freelance para artesana argentina especializada en carteras, bolsos y accesorios de cuero hechos a mano. Desarrollado de punta a punta: diseño, frontend, backend y deploy. Incluye panel de administración completo, gestión de pedidos, estadísticas y PWA instalable.",
+  technologies: [
+    { name: "Next.js 15", icon: SiNextdotjs },
+    { name: "TypeScript", icon: SiTypescript },
+    { name: "Tailwind CSS", icon: SiTailwindcss },
+    { name: "Supabase", icon: SiSupabase },
+    { name: "PostgreSQL", icon: SiPostgresql },
+    { name: "PWA", icon: SiPwa },
+    { name: "Vercel" },
+    { name: "RLS" },
+  ],
+  features: [
+    { icon: "🛍️", text: "Catálogo con filtro por categoría" },
+    { icon: "🔍", text: "Búsqueda en tiempo real con debounce" },
+    { icon: "🛒", text: "Carrito persistente en localStorage" },
+    { icon: "💬", text: "Checkout vía WhatsApp" },
+    { icon: "❤️", text: "Favoritos con persistencia" },
+    { icon: "🔐", text: "Auth completa (registro, login, logout)" },
+    { icon: "📦", text: "Historial de pedidos por usuario" },
+    { icon: "🎁", text: "Gift Card con animación flip" },
+    { icon: "📱", text: "PWA instalable en Android e iOS" },
+    { icon: "⚙️", text: "Panel admin con CRUD y estadísticas" },
+    { icon: "📊", text: "Gestión de estados de pedidos" },
+    { icon: "🛡️", text: "Row Level Security en Supabase" },
+  ],
+  myContribution: [
+    {
+      title: "🏗️ Proyecto Freelance Full-Stack",
+      description: "Desarrollé el proyecto completo de punta a punta: diseño de UI, frontend con Next.js 15 App Router, backend con Supabase (PostgreSQL + Auth + Storage + RLS) y deploy en Vercel."
+    },
+    {
+      title: "⚙️ Panel de Administración",
+      description: "Implementé panel admin protegido por rol con CRUD completo de productos, subida de imágenes múltiples a Supabase Storage, gestión de pedidos con cambio de estados y estadísticas de ventas."
+    },
+    {
+      title: "🛒 Flujo de Compra y Auth",
+      description: "Desarrollé carrito persistente, sistema de favoritos, historial de pedidos por usuario, flujo de checkout vía WhatsApp y autenticación completa con redirect automático según rol."
+    },
+  ],
+  githubUrl: "https://github.com/VMGaray/fernanda-saladino.git",
+  deployUrl: "https://fernanda-saladino.vercel.app",
+  images: [],
+},
+    {
+    id: 3,
     title: "🧑‍🚒 Héroes Cercanos",
     description:
       "Plataforma solidaria que conecta a la comunidad con los bomberos voluntarios. Sistema completo con roles diferenciados (admin/usuario), gestión de campañas, donaciones, capacitaciones, geolocalización y reportes de incidentes.",
@@ -69,7 +184,49 @@ export const projectsData = [
     ],
   },
   {
-    id: 2,
+  id: 4,
+  title: "🌿 La Chamana — Shopify Theme",
+  description:
+    "Tema personalizado de Shopify para una villa de lujo en Tulum, México. Desarrollado de punta a punta: diseño, Liquid templating, integraciones con Cloudbeds para reservas directas y Klaviyo para email marketing. Incluye galería infinita, carrusel de espacios, widget de booking personalizado y diseño editorial de alta gama.",
+  technologies: [
+    { name: "Shopify Liquid" },
+    { name: "JavaScript" },
+    { name: "CSS" },
+    { name: "Cloudbeds" },
+    { name: "Klaviyo" },
+    { name: "PWA" },
+    { name: "Shopify CLI" },
+  ],
+  features: [
+    { icon: "🏨", text: "Hero con widget de booking Cloudbeds" },
+    { icon: "🛏️", text: "Sección de suites con imagen/video" },
+    { icon: "🎠", text: "Carrusel de 9 espacios con autoplay" },
+    { icon: "🪗", text: "Acordeones de experiencias con precios" },
+    { icon: "🖼️", text: "Galería infinita con soporte táctil" },
+    { icon: "🗺️", text: "Google Maps embed (Tulum)" },
+    { icon: "📧", text: "Newsletter con integración Klaviyo" },
+    { icon: "📱", text: "Responsive + diseño editorial de lujo" },
+  ],
+  myContribution: [
+    {
+      title: "🎨 Tema Shopify desde Cero",
+      description: "Desarrollé el tema completo en Liquid con arquitectura de secciones, bloques y snippets reutilizables. Implementé sistema de design tokens con variables CSS generadas desde el theme editor de Shopify."
+    },
+    {
+      title: "📅 Integración Cloudbeds",
+      description: "Integré el widget de reservas de Cloudbeds manipulando el DOM para mover el date picker nativo al contenedor del tema, logrando coherencia visual total con el diseño de La Chamana."
+    },
+    {
+      title: "✉️ Email Marketing con Klaviyo",
+      description: "Implementé formulario de suscripción con fetch directo a la API de Klaviyo, mensajes de éxito/error personalizados y list ID configurable desde el theme editor."
+    },
+  ],
+  githubUrl: "https://github.com/VMGaray/lachamana",
+  deployUrl: "",
+  images: [],
+},
+  {
+    id: 5,
     title: "VGB-STORE -- Ecommerce",
     description:
       "Una tienda online desarrollada como proyecto final del curso de desarrollo frontend. Utiliza tecnologías modernas como Next.js (App Router), TypeScript y Tailwind CSS.",
@@ -94,7 +251,7 @@ export const projectsData = [
     ],
   },
   {
-    id: 3,
+    id: 6,
     title: "📰 Impacto Notas de Prensa - ICC Group",
     description:
       "Sistema automatizado para evaluar el impacto real de notas de prensa en radio y televisión. Implementado en n8n con integración de IA para análisis emocional, métricas objetivas y generación de resúmenes ejecutivos basados en datos reales.",
@@ -138,73 +295,9 @@ export const projectsData = [
       "/images/n8n.jpeg",
     ],
   },
+  
   {
-    id: 4,
-    title: "💎 Magnolia Joyas - E-commerce",
-    description:
-      "E-commerce completo full-stack para joyería especializada en plata 925, oro 18k y productos personalizados. Incluye catálogo con sistema de categorización jerárquica, carrito de compras, lista de deseos, API RESTful con NestJS y base de datos PostgreSQL con TypeORM.",
-    technologies: [
-      { name: "Next.js 16", icon: SiNextdotjs },
-      { name: "React 19", icon: FaReact },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "NestJS", icon: SiExpress },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "TypeORM" },
-      { name: "Swagger" },
-      { name: "Docker" },
-      { name: "Context API" },
-    ],
-    features: [
-      { icon: "🏠", text: "Página inicio con productos destacados" },
-      { icon: "🔍", text: "Sistema categorías jerárquico" },
-      { icon: "🛒", text: "Carrito con persistencia LocalStorage" },
-      { icon: "❤️", text: "Lista de favoritos/wishlist" },
-      { icon: "👤", text: "Login y registro validados" },
-      { icon: "📱", text: "Diseño responsive premium" },
-      { icon: "🎨", text: "Paleta colores personalizada" },
-      { icon: "⚡", text: "Animaciones fluidas y 3D" },
-      { icon: "🔌", text: "API RESTful con NestJS" },
-      { icon: "📚", text: "Documentación Swagger" },
-      { icon: "🌱", text: "Sistema seeds datos iniciales" },
-      { icon: "🐳", text: "Dockerizado para deploy" },
-    ],
-    myContribution: [
-      {
-        title: "🎨 Diseño y Arquitectura Frontend",
-        description: "Desarrollé el frontend completo con Next.js App Router, implementando diseño elegante con paleta de colores custom (magnolia-dark, magnolia-lilac), tipografías premium (Playfair Display + Lato) y animaciones 3D en tarjetas de productos con efectos hover fluidos."
-      },
-      {
-        title: "🛒 Sistema de Carrito y Favoritos",
-        description: "Implementé carrito de compras completo con Context API y persistencia en LocalStorage, sistema de wishlist/favoritos, y panel lateral deslizable con resumen de compra. Incluye gestión de cantidades, eliminación de items y cálculo de totales en tiempo real."
-      },
-      {
-        title: "🔧 Backend y Base de Datos",
-        description: "Desarrollé API RESTful completa con NestJS, implementando CRUD de productos, sistema de categorización jerárquica (Categorías → Tipos → Subtipos) con TypeORM, validación de datos con class-validator, y documentación automática con Swagger."
-      },
-      {
-        title: "🚀 Integración Full-Stack",
-        description: "Establecí la integración completa frontend-backend, configuré PostgreSQL con Docker, creé sistema de seeds para datos iniciales (5 categorías + 10 productos), y configuré filtrado avanzado por categoría, tipo y subtipo con endpoints optimizados."
-      }
-    ],
-    cardImages: [
-      "/images/ecommers.jpeg",
-      "/images/ecommers2.jpeg",
-      "/images/ecommers4.jpeg",
-    ],
-    githubUrl: "https://github.com/VMGaray/magnolia_joyas.git",
-    deployUrl: "",
-    images: [
-      "/images/ecommers.jpeg",
-      "/images/ecommers1.jpeg",
-      "/images/ecommers2.jpeg",
-      "/images/ecommers3.jpeg",
-      "/images/ecommers4.jpeg",
-      "/images/ecommers5.jpeg",
-    ],
-  },
-  {
-    id: 5,
+    id: 7,
     title: "Lumière Beauty - Sistema de Turnos",
     description:
       "Aplicación web moderna y elegante para la gestión de turnos de un salón de belleza. Ofrece autenticación de usuarios, gestión completa de citas, diseño responsive y validación en tiempo real.",
@@ -227,7 +320,7 @@ export const projectsData = [
     ],
   },
   {
-    id: 6,
+    id: 8,
     title: "🤖 Alerta Menciones - IA Lead Gen",
     description:
       "Sistema de inteligencia de mercado que automatiza la ingesta, filtrado y calificación de leads desde TripAdvisor. Procesa miles de noticias mediante agentes de IA para identificar oportunidades de negocio reales, eliminando el ruido informativo y centralizando la gestión en una base de datos vectorial.",
@@ -273,7 +366,7 @@ export const projectsData = [
     ],
   },
   {
-    id: 7,
+    id: 9,
     title: "🌊 Martins Perforaciones - Web & PWA",
     description:
       "Landing Page y Progressive Web App (PWA) de alta performance desarrollada para una empresa líder en perforaciones de agua en el Valle de Calamuchita, Córdoba. El proyecto se centra en transmitir solidez técnica y cumplimiento normativo (Habilitación DIPAS), optimizando la captación de clientes locales.",

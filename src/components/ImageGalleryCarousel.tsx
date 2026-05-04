@@ -1,76 +1,91 @@
 'use client';
 
-import Image from "next/image";
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
-const images = [
-  "/images/heroes landing.jpg",
-  "/images/heroes login.jpg",
-  "/images/heroes chatBot.jpg",
-  "/images/heroes cuartel.jpg",
-  "/images/heroes metrivas.jpg",
-  "/images/heroes reportes.jpg",
-  "/images/vgb-store-1.jpg",
-  "/images/vgb-store-2.jpg",
-  "/images/vgb-store-3.jpg",
-  "/images/vgb-store-4.jpg",
-  "/images/vgb-store-5.jpg",
-  "/images/vgb-store-6.jpg",
-  "/images/nota-prensa.jpeg",
-  "/images/nota-prensa1.jpeg",
-  "/images/nota-prensa2.jpeg",
-  "/images/nota-prensa3.jpeg",
-  "/images/n8n.jpeg",
-  "/images/ecommers.jpeg",
-  "/images/ecommers1.jpeg",
-  "/images/ecommers2.jpeg",
-  "/images/ecommers3.jpeg",
-  "/images/ecommers4.jpeg",
-  "/images/ecommers5.jpeg",
-  "/images/sistema de turnos.jpg",
-  "/images/sistema de turnos1.jpg",
-  "/images/sistema de turnos2.jpg",
-  "/images/sistema de turnos3.jpg",
-  "/images/sistema de turnos4.jpg",
-  "/images/alerta menciones flujo.jpeg",
-  "/images/matching flujo.jpeg",
-  "/images/recolector flujo.jpeg",
-  "/images/app martins.jpeg",
-  "/images/app martins login.jpeg",
-  "/images/app martins admin.jpeg",
+const IMAGES = [
+  '/images/heroes landing.jpg', '/images/heroes login.jpg',
+  '/images/heroes chatBot.jpg', '/images/heroes cuartel.jpg',
+  '/images/heroes metrivas.jpg', '/images/heroes reportes.jpg',
+  '/images/vgb-store-1.jpg', '/images/vgb-store-2.jpg',
+  '/images/vgb-store-3.jpg', '/images/vgb-store-4.jpg',
+  '/images/nota-prensa.jpeg', '/images/nota-prensa1.jpeg',
+  '/images/nota-prensa2.jpeg', '/images/n8n.jpeg',
+  '/images/ecommers.jpeg', '/images/ecommers1.jpeg',
+  '/images/ecommers2.jpeg', '/images/sistema de turnos.jpg',
+  '/images/app martins.jpeg', '/images/app martins login.jpeg',
 ];
 
 export default function ImageGalleryCarousel() {
-  // Duplicamos el array de imágenes para crear el efecto infinito
-  const doubledImages = [...images, ...images];
+  const sectionRef = useRef<HTMLElement>(null);
+  const doubled = [...IMAGES, ...IMAGES];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vg-visible'); }),
+      { threshold: 0.1 }
+    );
+    sectionRef.current?.querySelectorAll('.vg-reveal').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="py-16 bg-gradient-to-r from-purple-50 via-blue-50 to-purple-50 overflow-hidden">
-      <div className="container mx-auto px-6 mb-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-blue-950 mb-4">
-          Galería de Proyectos
-        </h2>
-        <p className="text-center text-gray-600 text-lg">
-          Explora las capturas de mis proyectos en acción
-        </p>
+    <section
+      ref={sectionRef}
+      style={{
+        background: '#0a0814',
+        padding: '100px 0',
+        overflow: 'hidden',
+        fontFamily: "'DM Sans', sans-serif",
+        position: 'relative',
+      }}
+    >
+      <style>{`
+        .vg-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16,1,0.3,1); }
+        .vg-reveal.vg-visible { opacity: 1; transform: translateY(0); }
+        @keyframes gallery-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .gallery-track { animation: gallery-scroll 70s linear infinite; display: flex; width: fit-content; }
+        .gallery-track:hover { animation-play-state: paused; }
+        .gallery-item {
+          position: relative; flex-shrink: 0; width: 280px; height: 180px;
+          border-radius: 6px; overflow: hidden; margin: 0 8px;
+          border: 1px solid rgba(126,79,176,0.12);
+          transition: border-color 0.3s, transform 0.3s;
+        }
+        .gallery-item:hover { border-color: rgba(196,168,232,0.25); transform: scale(1.02); }
+        .gallery-item::after {
+          content: ''; position: absolute; inset: 0;
+          background: linear-gradient(to top, rgba(14,11,26,0.4), transparent);
+          pointer-events: none;
+        }
+      `}</style>
+
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 40px', marginBottom: 48 }}>
+        <div className="vg-reveal">
+          <div style={{ fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#6b5c80', marginBottom: 12 }}>
+            06 / Galería
+          </div>
+          <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(44px,6vw,72px)', color: '#e8e0f5', lineHeight: 1 }}>
+            Capturas<span style={{ color: '#7E4FB0' }}>.</span>
+          </div>
+        </div>
       </div>
 
-      <div className="relative">
-        <div className="carousel-container">
-          <div className="carousel-track">
-            {doubledImages.map((image, index) => (
-              <div
-                key={index}
-                className="carousel-item flex-shrink-0 px-4"
-              >
-                <div className="relative w-80 h-52 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border-4 border-white">
-                  <Image
-                    src={image}
-                    alt={`Proyecto ${index + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="320px"
-                  />
-                </div>
+      {/* Fade edges */}
+      <div style={{ position: 'relative' }}>
+        <div style={{
+          position: 'absolute', left: 0, top: 0, bottom: 0, width: 120, zIndex: 2,
+          background: 'linear-gradient(to right, #0a0814, transparent)', pointerEvents: 'none',
+        }} />
+        <div style={{
+          position: 'absolute', right: 0, top: 0, bottom: 0, width: 120, zIndex: 2,
+          background: 'linear-gradient(to left, #0a0814, transparent)', pointerEvents: 'none',
+        }} />
+        <div style={{ overflow: 'hidden' }}>
+          <div className="gallery-track">
+            {doubled.map((src, i) => (
+              <div key={i} className="gallery-item">
+                <Image src={src} alt={`Proyecto ${i + 1}`} fill style={{ objectFit: 'cover' }} sizes="280px" />
               </div>
             ))}
           </div>

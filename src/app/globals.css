@@ -3,105 +3,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Animaciones personalizadas */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s ease-out;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.8s ease-out;
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 0.8s ease-out;
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
+* {
+  box-sizing: border-box;
+}
 
+body {
+  background: #0e0b1a;
+  color: #e8e0f5;
+}
 
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0e0b1a;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(126,79,176,0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(126,79,176,0.7);
+}
+
+/* Iris open de entrada */
 @keyframes irisOpen {
-  0% {
-    clip-path: circle(2% at 50% 50%);
-  }
-  100% {
-    clip-path: circle(150% at 50% 50%);
-  }
+  0% { clip-path: circle(2% at 50% 50%); }
+  100% { clip-path: circle(150% at 50% 50%); }
 }
-
 .animate-iris-open {
-  animation: irisOpen 2s ease-in-out forwards;
+  animation: irisOpen 1.8s ease-in-out forwards;
 }
 
-/* Estilos para el efecto flip de las tarjetas de proyectos */
-.perspective-container {
-  perspective: 1000px;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
-
+/* Flip cards (Projects) */
+.perspective-container { perspective: 1000px; }
+.rotate-y-180 { transform: rotateY(180deg); }
 .backface-hidden {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-
 .flip-card-inner {
   position: relative;
   transition: transform 0.7s;
   transform-style: preserve-3d;
 }
-
 .flip-card-front,
 .flip-card-back {
   position: absolute;
@@ -111,57 +61,11 @@ html {
   -webkit-backface-visibility: hidden;
 }
 
-/* Carrusel infinito de imágenes */
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.carousel-container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.carousel-track {
-  display: flex;
-  animation: scroll-left 60s linear infinite;
-  width: fit-content;
-}
-
-.carousel-track:hover {
-  animation-play-state: paused;
-}
-
-.carousel-item {
-  display: inline-block;
-}
-
-/* Scrollbar personalizado para las cards de proyectos */
+/* Scrollbar para cards */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #7E4FB0 #f3e8ff;
+  scrollbar-color: #7E4FB0 rgba(126,79,176,0.1);
 }
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #f3e8ff;
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #7E4FB0;
-  border-radius: 10px;
-  transition: background 0.3s;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #6d3f96;
-}
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: rgba(126,79,176,0.08); border-radius: 2px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #7E4FB0; border-radius: 2px; }
