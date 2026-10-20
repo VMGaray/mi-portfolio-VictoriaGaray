@@ -1,27 +1,18 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-
-const IMAGES: (string | { src: string; alt: string })[] = [
-  '/images/heroes landing.jpg', '/images/heroes login.jpg',
-  '/images/heroes chatBot.jpg', '/images/heroes cuartel.jpg',
-  '/images/heroes metrivas.jpg', '/images/heroes reportes.jpg',
-  '/images/vgb-store-1.jpg', '/images/vgb-store-2.jpg',
-  '/images/vgb-store-3.jpg', '/images/vgb-store-4.jpg',
-  '/images/nota-prensa.jpeg', '/images/nota-prensa1.jpeg',
-  '/images/nota-prensa2.jpeg', '/images/n8n.jpeg',
-  '/images/ecommers.jpeg', '/images/ecommers1.jpeg',
-  '/images/ecommers2.jpeg', '/images/sistema de turnos.jpg',
-  '/images/app martins.jpeg', '/images/app martins login.jpeg',
-  { src: '/images/timbre-1.png', alt: 'Timbre QR: formulario del visitante' },
-  { src: '/images/timbre-2.png', alt: 'Timbre QR: esperando respuesta' },
-  { src: '/images/timbre-3.png', alt: 'Timbre QR: respuesta recibida' },
-];
+import { galleryImages } from '../data/galleryData';
+import GalleryLightbox from './GalleryLightbox';
 
 export default function ImageGalleryCarousel() {
   const sectionRef = useRef<HTMLElement>(null);
-  const doubled = [...IMAGES, ...IMAGES];
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [touchPaused, setTouchPaused] = useState(false);
+  // El array se duplica para el loop infinito; la segunda copia es solo visual
+  const copies = [0, 1];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,6 +22,32 @@ export default function ImageGalleryCarousel() {
     sectionRef.current?.querySelectorAll('.vg-reveal').forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => () => { if (resumeTimer.current) clearTimeout(resumeTimer.current); }, []);
+
+  function openLightbox(index: number, trigger: HTMLButtonElement) {
+    triggerRef.current = trigger;
+    setOpenIndex(index);
+  }
+
+  function closeLightbox() {
+    setOpenIndex(null);
+    triggerRef.current?.focus({ preventScroll: true });
+  }
+
+  // Pausa al tocar en pantallas táctiles (en desktop lo hace el :hover)
+  function onPointerDown(e: React.PointerEvent) {
+    if (e.pointerType === 'mouse') return;
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    setTouchPaused(true);
+  }
+
+  function onPointerUp(e: React.PointerEvent) {
+    if (e.pointerType === 'mouse') return;
+    resumeTimer.current = setTimeout(() => setTouchPaused(false), 2000);
+  }
+
+  const paused = touchPaused || openIndex !== null;
 
   return (
     <section
@@ -47,19 +64,48 @@ export default function ImageGalleryCarousel() {
         .vg-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16,1,0.3,1); }
         .vg-reveal.vg-visible { opacity: 1; transform: translateY(0); }
         @keyframes gallery-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .gallery-viewport { overflow: hidden; }
         .gallery-track { animation: gallery-scroll 70s linear infinite; display: flex; width: fit-content; }
-        .gallery-track:hover { animation-play-state: paused; }
+        .gallery-track:hover, .gallery-track.is-paused, .gallery-track:has(:focus-visible) { animation-play-state: paused; }
         .gallery-item {
           position: relative; flex-shrink: 0; width: 280px; height: 180px;
-          border-radius: 6px; overflow: hidden; margin: 0 8px;
-          border: 1px solid rgba(126,79,176,0.12);
+          border-radius: 6px; overflow: hidden; margin: 0 8px; padding: 0;
+          border: 1px solid rgba(126,79,176,0.12); background: #0e0b1a;
+          cursor: zoom-in; display: block;
           transition: border-color 0.3s, transform 0.3s;
         }
         .gallery-item:hover { border-color: rgba(196,168,232,0.25); transform: scale(1.02); }
+        .gallery-item:focus-visible { outline: 2px solid #c4a8e8; outline-offset: 2px; }
         .gallery-item::after {
-          content: ''; position: absolute; inset: 0;
+          content: ''; position: absolute; inset: 0; z-index: 1;
           background: linear-gradient(to top, rgba(14,11,26,0.4), transparent);
           pointer-events: none;
+        }
+        .gallery-blur {
+          position: absolute; inset: 0;
+          background-size: cover; background-position: center;
+          filter: blur(14px) brightness(0.45); transform: scale(1.2);
+        }
+        .gallery-blur::after { content: ''; position: absolute; inset: 0; background: rgba(10,8,20,0.35); }
+        .gallery-label {
+          position: absolute; left: 8px; bottom: 8px; z-index: 2;
+          font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+          padding: 4px 8px; border-radius: 2px;
+          background: rgba(14,11,26,0.72); color: #e8e0f5;
+          border: 1px solid rgba(126,79,176,0.25);
+          backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+          max-width: calc(100% - 16px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .gallery-fade { position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+        @media (max-width: 640px) {
+          .gallery-fade { width: 40px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .gallery-track { animation: none; }
+          .gallery-viewport { overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 32px; }
+          .gallery-item { scroll-snap-align: center; transition: none; }
+          .gallery-item:hover { transform: none; }
+          .gallery-copy-1 { display: none !important; }
         }
       `}</style>
 
@@ -76,28 +122,54 @@ export default function ImageGalleryCarousel() {
 
       {/* Fade edges */}
       <div style={{ position: 'relative' }}>
-        <div style={{
-          position: 'absolute', left: 0, top: 0, bottom: 0, width: 120, zIndex: 2,
-          background: 'linear-gradient(to right, #0a0814, transparent)', pointerEvents: 'none',
-        }} />
-        <div style={{
-          position: 'absolute', right: 0, top: 0, bottom: 0, width: 120, zIndex: 2,
-          background: 'linear-gradient(to left, #0a0814, transparent)', pointerEvents: 'none',
-        }} />
-        <div style={{ overflow: 'hidden' }}>
-          <div className="gallery-track">
-            {doubled.map((img, i) => {
-              const src = typeof img === 'string' ? img : img.src;
-              const alt = typeof img === 'string' ? `Proyecto ${i + 1}` : img.alt;
+        <div className="gallery-fade" style={{ left: 0, background: 'linear-gradient(to right, #0a0814, transparent)' }} />
+        <div className="gallery-fade" style={{ right: 0, background: 'linear-gradient(to left, #0a0814, transparent)' }} />
+        <div className="gallery-viewport">
+          <div
+            className={`gallery-track${paused ? ' is-paused' : ''}`}
+            onPointerDown={onPointerDown}
+            onPointerUp={onPointerUp}
+            onPointerCancel={onPointerUp}
+          >
+            {copies.map(copy => galleryImages.map((img, i) => {
+              const isCopy = copy === 1;
               return (
-                <div key={i} className="gallery-item">
-                  <Image src={src} alt={alt} fill style={{ objectFit: 'cover' }} sizes="280px" />
-                </div>
+                <button
+                  key={`${copy}-${i}`}
+                  type="button"
+                  className={`gallery-item gallery-copy-${copy}`}
+                  onClick={e => openLightbox(i, e.currentTarget)}
+                  aria-label={isCopy ? undefined : `Ver en grande: ${img.alt}`}
+                  aria-hidden={isCopy || undefined}
+                  tabIndex={isCopy ? -1 : undefined}
+                >
+                  {img.orientation === 'portrait' && (
+                    <div className="gallery-blur" style={{ backgroundImage: `url("${img.src.blurDataURL}")` }} />
+                  )}
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="280px"
+                    placeholder="blur"
+                    style={{ objectFit: img.orientation === 'portrait' ? 'contain' : 'cover' }}
+                  />
+                  <span className="gallery-label" aria-hidden="true">{img.project}</span>
+                </button>
               );
-            })}
+            }))}
           </div>
         </div>
       </div>
+
+      {openIndex !== null && (
+        <GalleryLightbox
+          images={galleryImages}
+          index={openIndex}
+          onClose={closeLightbox}
+          onNavigate={setOpenIndex}
+        />
+      )}
     </section>
   );
 }
