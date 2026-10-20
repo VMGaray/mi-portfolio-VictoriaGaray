@@ -245,7 +245,6 @@ import { SiShopify } from 'react-icons/si'
       "/images/vgb-store-1.jpg",
       "/images/vgb-store-2.jpg",
       "/images/vgb-store-3.jpg",
-      "/images/vgb-store-4.jpg",
       "/images/vgb-store-5.jpg",
       "/images/vgb-store-6.jpg",
     ],
