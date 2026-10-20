@@ -11,6 +11,7 @@ type Project = {
   technologies: Tech[];
   githubUrl?: string;
   deployUrl?: string;
+  badge?: string;
 };
 
 export default function Projects() {
@@ -68,6 +69,12 @@ export default function Projects() {
           transition: all 0.3s; display: inline-block;
         }
         .proj-link:hover { background: rgba(126,79,176,0.15); border-color: rgba(196,168,232,0.5); color: #e8e0f5; }
+        .proj-badge {
+          font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+          padding: 10px 20px; border: 1px solid rgba(126,79,176,0.3);
+          color: rgba(196,168,232,0.6); border-radius: 2px;
+          display: inline-block; cursor: default; user-select: none;
+        }
         .proj-link-primary {
           font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
           padding: 10px 20px; background: #7E4FB0; color: #e8e0f5;
@@ -174,6 +181,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="proj-link">
             GitHub
           </a>
+        )}
+        {project.badge && (
+          <span className="proj-badge">{project.badge}</span>
         )}
       </div>
     </div>

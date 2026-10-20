@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
-const IMAGES = [
+const IMAGES: (string | { src: string; alt: string })[] = [
   '/images/heroes landing.jpg', '/images/heroes login.jpg',
   '/images/heroes chatBot.jpg', '/images/heroes cuartel.jpg',
   '/images/heroes metrivas.jpg', '/images/heroes reportes.jpg',
@@ -14,6 +14,9 @@ const IMAGES = [
   '/images/ecommers.jpeg', '/images/ecommers1.jpeg',
   '/images/ecommers2.jpeg', '/images/sistema de turnos.jpg',
   '/images/app martins.jpeg', '/images/app martins login.jpeg',
+  { src: '/images/timbre-1.png', alt: 'Timbre QR: formulario del visitante' },
+  { src: '/images/timbre-2.png', alt: 'Timbre QR: esperando respuesta' },
+  { src: '/images/timbre-3.png', alt: 'Timbre QR: respuesta recibida' },
 ];
 
 export default function ImageGalleryCarousel() {
@@ -83,11 +86,15 @@ export default function ImageGalleryCarousel() {
         }} />
         <div style={{ overflow: 'hidden' }}>
           <div className="gallery-track">
-            {doubled.map((src, i) => (
-              <div key={i} className="gallery-item">
-                <Image src={src} alt={`Proyecto ${i + 1}`} fill style={{ objectFit: 'cover' }} sizes="280px" />
-              </div>
-            ))}
+            {doubled.map((img, i) => {
+              const src = typeof img === 'string' ? img : img.src;
+              const alt = typeof img === 'string' ? `Proyecto ${i + 1}` : img.alt;
+              return (
+                <div key={i} className="gallery-item">
+                  <Image src={src} alt={alt} fill style={{ objectFit: 'cover' }} sizes="280px" />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

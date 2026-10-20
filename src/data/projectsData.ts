@@ -3,7 +3,7 @@ import {
   FaReact, FaBootstrap, FaJs, FaHtml5, FaCss3Alt, FaNodeJs, FaRobot, FaDatabase, 
   FaServer, FaWhatsapp, FaGlobeAmericas, FaCertificate } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiRedux, SiPostgresql, SiExpress, SiTypescript,
-  SiN8N, SiOpenai, SiSupabase, SiJavascript, SiPwa} from "react-icons/si";
+  SiN8N, SiOpenai, SiSupabase, SiJavascript, SiPwa, SiTelegram} from "react-icons/si";
 import { SiShopify } from 'react-icons/si'
 
   export const projectsData = [
@@ -408,7 +408,36 @@ import { SiShopify } from 'react-icons/si'
       "/images/app martins.jpeg",
       "/images/app martins login.jpeg",
       "/images/app martins admin.jpeg",
-      
+
+    ],
+  },
+  {
+    id: 10,
+    title: "🔔 Timbre Inteligente QR — IoT & Telegram Bot",
+    description:
+      "Timbre inteligente para el hogar: un código QR en la puerta abre una web mobile-first donde el visitante toca el timbre, con nombre y motivo opcionales. El aviso llega en simultáneo al Telegram de toda la familia a través de un bot propio, con botones de respuesta rápida o texto libre. La respuesta aparece en tiempo real en el celular del visitante sin revelar quién respondió, y el resto de la familia recibe un aviso de quién contestó. Incluye webhook verificado por secret, anti-spam, honeypot, base de datos aislada en un schema propio con RLS y acceso solo desde el servidor, e interfaz animada con íconos 3D.",
+    technologies: [
+      { name: "Next.js 16", icon: SiNextdotjs },
+      { name: "React", icon: FaReact },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Supabase", icon: SiSupabase },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Telegram Bot API", icon: SiTelegram },
+      { name: "Webhooks" },
+      { name: "Motion" },
+      { name: "Vercel" },
+    ],
+    cardImages: [
+      "/images/timbre-1.png",
+    ],
+    githubUrl: "#", // Repo privado: es el timbre real de mi casa
+    deployUrl: "",
+    badge: "Proyecto personal · Demo a pedido",
+    images: [
+      "/images/timbre-1.png",
+      "/images/timbre-2.png",
+      "/images/timbre-3.png",
     ],
   },
 ];
