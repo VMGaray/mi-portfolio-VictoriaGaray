@@ -9,7 +9,6 @@ import heroesReportes from '../../public/images/heroes reportes.jpg';
 import vgbStore1 from '../../public/images/vgb-store-1.jpg';
 import vgbStore2 from '../../public/images/vgb-store-2.jpg';
 import vgbStore3 from '../../public/images/vgb-store-3.jpg';
-import vgbStore4 from '../../public/images/vgb-store-4.jpg';
 import notaPrensa from '../../public/images/nota-prensa.jpeg';
 import notaPrensa1 from '../../public/images/nota-prensa1.jpeg';
 import notaPrensa2 from '../../public/images/nota-prensa2.jpeg';
@@ -51,7 +50,6 @@ export const galleryImages: GalleryImage[] = [
   img(vgbStore1, 'VGB Store', 'productos destacados'),
   img(vgbStore2, 'VGB Store', 'carrito de compras'),
   img(vgbStore3, 'VGB Store', 'registro de usuario'),
-  img(vgbStore4, 'VGB Store', 'perfil del usuario'),
   img(notaPrensa, 'Impacto Notas de Prensa', 'formulario de análisis'),
   img(notaPrensa1, 'Impacto Notas de Prensa', 'invitación a crear cuenta'),
   img(notaPrensa2, 'Impacto Notas de Prensa', 'resultados del análisis'),
