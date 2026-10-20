@@ -119,12 +119,14 @@ export default function Contact() {
               } as React.CSSProperties}
             >
               <l.Icon style={{ fontSize: 22, color: l.accent, flexShrink: 0 }} />
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <div style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#e8e0f5', marginBottom: 2 }}>
                   {l.label}
                 </div>
-                <div style={{ fontSize: 12, color: 'rgba(196,168,232,0.35)', fontWeight: 300 }}>
-                  {l.sublabel}
+                <div style={{ fontSize: 12, color: 'rgba(196,168,232,0.35)', fontWeight: 300, overflowWrap: 'anywhere' }}>
+                  {l.sublabel.split('@').map((part, j) => (
+                    <span key={j}>{j > 0 && <>@<wbr /></>}{part}</span>
+                  ))}
                 </div>
               </div>
               <svg style={{ marginLeft: 'auto', color: 'rgba(196,168,232,0.2)' }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
